@@ -1,0 +1,133 @@
+{
+  "name": "Veaceslav \\u021aurcanu",
+  "headline": "Python Backend Engineer | Linux & IoT Systems",
+  "location": "H\\u00eence\\u0219ti, Moldova",
+  "email": "turcanuslavik1986@gmail.com",
+  "phone": "+373 698 76312",
+  "summary": "Python Backend Engineer specialized in backend services for Linux and embedded systems. Experienced in designing microservices, async applications, CI/CD pipelines, and system-level integrations.",
+  "skills": [
+    "Python",
+    "Asyncio / Sanic",
+    "Linux",
+    "Docker / CI/CD",
+    "pytest",
+    "PostgreSQL",
+    "React",
+    "MUI"
+  ],
+  "languages": [
+    "Romanian",
+    "English",
+    "Russian"
+  ],
+  "certifications": [
+    "PCAP \\u2013 Certified Associate in Python Programming",
+    "Certified SAFe 6 Practitioner",
+    "JavaScript Algorithms and Data Structures",
+    "Relational database"
+  ],
+  "experience": [
+    {
+      "role": "Python Web Backend Developer",
+      "company": "SmartSoftDev",
+      "period": "May 2022 - December 2025 (3 years 8 months)",
+      "projects": [
+        "SCB - Web application for a Embedded device, the application used React for FE and Sanic Web framework for BE side.",
+        "HL7Connect - Small web application that will be responsible for configure HL7 converter daemon, the application used React for FE and Sanic Web framework for BE side.",
+        "MatterHorn - Software building, migration (from IoT device (ARMv5) to newer IoT device (ARMv7)), testing on target device."
+      ],
+      "desc": [
+        "Developed backend services for embedded devices using Sanic and asyncio",
+        "Integrated socketIO",
+        "Developed and implemented client-side features using React+MUI, improving responsiveness and user interaction",
+        "Built CI/CD pipelines with Azure DevOps",
+        "Automated testing using pytest and Robot Framework",
+        "Worked with ARM-based IoT devices and Linux systems"
+      ]
+    },
+    {
+      "role": "Full stack Developer",
+      "company": "Personal Project",
+      "period": "October 2025 - December 2025",
+      "projects": [
+        "Dental Tech Register (DTR) - Web application for managing work-order records. Technicians can register, log in, and maintain their own records (description, work started/finished dates, completion status). Built with a Django REST backend and a React (MUI) frontend, orchestrated with Docker."
+      ],
+      "desc": [
+        "Implemented user authentication (registration, login, logout)",
+        "Created CRUD functionality for records",
+        "Designed database models using SQLite",
+        "Developed REST APIs using Django REST Framework"
+      ]
+    },
+    {
+      "role": "FE Developer",
+      "company": "Personal Project",
+      "period": "September 2025",
+      "projects": [
+        "Route Calculator - A React SPA that lets users select two points on a map(OSMR), calculates the distance(Leaflet / react-leaflet) and travel price, and generates a QR code(qrcode.react) linking to a Stripe payment form."
+      ],
+      "desc": [
+        "Implemented SPA application"
+      ]
+    },
+    {
+      "role": "Python Backend Developer",
+      "company": "SmartSoftDev",
+      "period": "June 2020 - April 2022 (1 year 11 months)",
+      "projects": [
+        "Private CRM - The project implements an Customer Relationship Management portal with an advanced SSO (Single Sign On) technology.",
+        "NStick - Is a complex project providing SSH connections to remote devices.",
+        "Contact-Form and verify microservices - Worked on a set of microservices written in python, asyncio using Sanic framework."
+      ],
+      "desc": [
+        "Implemented SSO logic and integrated web services into a central CRM portal using Python and Sanic.",
+        "Developed secure SSH connectivity features for remote devices, managing complex TCP/IP and SSL configurations.",
+        "Refined and scaled Python-based microservices, utilizing Asyncio to ensure high performance under heavy client loads."
+      ]
+    },
+    {
+      "role": "Python Backend Developer",
+      "company": "ITSISTEMS",
+      "period": "November 2018 - January 2019 (3 months)",
+      "desc": [
+        "Implemented Django REST API",
+        "Built web scraping tools using Scrapy and BeautifulSoup"
+      ]
+    },
+    {
+      "role": "Junior Python Backend Developer",
+      "company": "SmartSoftDev",
+      "period": "December 2017 - May 2018 (6 months)",
+      "desc": [
+        "Contributed to the FTU (First Time Use) flow, ensuring a seamless initial setup and hardware-to-software orchestration for new users.",
+        "Developed and tested OTA (Over-the-Air) update mechanisms, managing secure firmware delivery and system stability."
+      ]
+    },
+    {
+      "role": "Entry-Level Python Developer Intern",
+      "company": "SmartSoftDev",
+      "period": "May 2016 - December 2016 (8 months)",
+      "desc": [
+        "Assisted in debugging and testing code, improving overall software reliability.",
+        "Collaborated with the development team on project requirements and implementation.",
+        "Gained hands-on experience with Python libraries such as Falcon, Celery, Jsonschema."
+      ]
+    },
+    {
+      "role": "Laboratory Assistant",
+      "organization": "USMF (Centrul de Cultivare a Plantelor Medicinale)",
+      "period": "December 2009 - January 2014 (4 years 2 months)",
+      "desc": [
+        "Maintenance and expansion of the medicinal plant collection.",
+        "Materials Coordinator."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "name": "Moldova State University",
+      "specialisation": "Faculty of Biology and Pedology - Ecology and Environmental Protection",
+      "period": "September 2004 - May 2008"
+    }
+  ]
+}
