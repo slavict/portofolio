@@ -32,9 +32,9 @@
       "company": "SmartSoftDev",
       "period": "May 2022 - December 2025 (3 years 8 months)",
       "projects": [
-        "SCB - Web application for a Embedded device, the application used React for FE and Sanic Web framework for BE side.",
-        "HL7Connect - Small web application that will be responsible for configure HL7 converter daemon, the application used React for FE and Sanic Web framework for BE side.",
-        "MatterHorn - Software building, migration (from IoT device (ARMv5) to newer IoT device (ARMv7)), testing on target device."
+        "Embedded Device Web Portal - Web application for a specialized hardware device, utilizing React for the frontend and Sanic Web framework for the backend.",
+        "System Configuration Utility - Web application responsible for managing and configuring a background system daemon, using React for the frontend and Sanic Web framework for the backend.",
+        "IoT Hardware Migration - Software building, system migration from legacy ARMv5 IoT devices to modern ARMv7 hardware platforms, and integration testing on target devices."
       ],
       "desc": [
         "Developed backend services for embedded devices using Sanic and asyncio",
@@ -75,9 +75,9 @@
       "company": "SmartSoftDev",
       "period": "June 2020 - April 2022 (1 year 11 months)",
       "projects": [
-        "Private CRM - The project implements an Customer Relationship Management portal with an advanced SSO (Single Sign On) technology.",
-        "NStick - Is a complex project providing SSH connections to remote devices.",
-        "Contact-Form and verify microservices - Worked on a set of microservices written in python, asyncio using Sanic framework."
+        "Enterprise CRM & SSO Portal - Implemented a Customer Relationship Management web application featuring advanced Single Sign-On (SSO) integration.",
+        "Secure Remote Connectivity Tool - Complex infrastructure project providing secure SSH connections to remote physical devices.",
+        "Core Microservices Infrastructure - Developed and optimized a set of high-performance microservices focused on data validation and contact processing, built with Python and Asyncio using the Sanic framework."
       ],
       "desc": [
         "Implemented SSO logic and integrated web services into a central CRM portal using Python and Sanic.",

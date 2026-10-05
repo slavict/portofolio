@@ -20,7 +20,7 @@ python3 -m http.server 8080
 
 Then open [http://localhost:8080](http://localhost:8080).
 
-Regenerate the PDF after editing `cv_data.json`:
+Regenerate the PDF after editing `cv_python_dev_data.json`:
 
 ```bash
 pip install weasyprint
