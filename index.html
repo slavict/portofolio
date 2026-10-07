@@ -1,413 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Veaceslav Țurcanu — Python Backend Engineer | Linux & IoT Systems">
-    <title>Veaceslav Țurcanu — CV</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Veaceslav Țurcanu - CV</title>
     <style>
-        :root {
-            --accent: #0A66C2;
-            --sidebar-bg: #F3F6F8;
-            --text: #222;
-            --muted: #666;
-        }
+      @page {
+        size: A4;
+        margin: 0;
+      }
 
-        * {
-            box-sizing: border-box;
-        }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #f3f6f8 30%, #ffffff 30%);
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
 
+      /* Stiluri specifice pentru vizualizarea pe ecran (Browser) */
+      @media screen {
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text);
-            line-height: 1.5;
-            background: #fff;
+          background: #525659;
+          padding: 20px 0;
         }
 
-        .layout {
-            display: flex;
-            min-height: 100vh;
+        .page-container {
+          width: 210mm;
+          min-height: 297mm;
+          margin: 0 auto;
+          background: linear-gradient(to right, #f3f6f8 30%, #ffffff 30%);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          position: relative;
+          box-sizing: border-box;
         }
+      }
 
-        .sidebar {
-            width: 30%;
-            min-width: 260px;
-            background: var(--sidebar-bg);
-            padding: 40px 24px;
-        }
+      /* Structură layout */
+      .cv-wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 297mm;
+      }
 
-        .main {
-            flex: 1;
-            padding: 40px 48px;
-            max-width: 900px;
-        }
+      .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30%;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        z-index: 2;
+      }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 24px;
-            border: 4px solid #fff;
-            display: block;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
-        }
+      .main {
+        margin-left: 30%;
+        width: 70%;
+        padding: 40px;
+        box-sizing: border-box;
+      }
 
-        .sidebar h3 {
-            color: var(--accent);
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 6px;
-            font-size: 16px;
-            margin: 28px 0 12px;
-            font-weight: 600;
-        }
+      /* Elemente Profil */
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 4px solid white;
+        display: block;
+      }
 
-        .sidebar h3:first-of-type {
-            margin-top: 0;
-        }
+      .sidebar h3 {
+        color: #0a66c2;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        font-size: 16px;
+        margin-top: 25px;
+      }
 
-        .sidebar p,
-        .sidebar a {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #333;
-            margin: 0;
-        }
+      .sidebar p {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #333;
+      }
 
-        .sidebar a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+      .header h1 {
+        margin: 0;
+        font-size: 26px;
+        color: #000;
+      }
 
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
+      .header h2 {
+        margin: 5px 0;
+        font-size: 16px;
+        color: #0a66c2;
+        font-weight: 600;
+      }
 
-        .skill-list,
-        .lang-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 13px;
-            color: #333;
-        }
+      .section-title {
+        color: #0a66c2;
+        border-bottom: 2px solid #0a66c2;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
 
-        .skill-list li,
-        .lang-list li {
-            padding: 2px 0;
-        }
+      /* Secțiuni experiență și conținut */
+      .exp-item {
+        margin-bottom: 18px;
+      }
 
-        .skill-list li::before,
-        .lang-list li::before {
-            content: "• ";
-            color: var(--accent);
-        }
+      .exp-role {
+        font-weight: bold;
+        font-size: 14px;
+        color: #222;
+      }
 
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #000;
-            font-weight: 700;
-        }
+      .exp-meta {
+        color: #666;
+        font-size: 12px;
+        margin-bottom: 5px;
+        font-style: italic;
+      }
 
-        .header h2 {
-            margin: 8px 0 0;
-            font-size: 17px;
-            color: var(--accent);
-            font-weight: 600;
-        }
+      .label-text {
+        font-size: 12px;
+        font-weight: bold;
+        color: #444;
+        margin-top: 8px;
+      }
 
-        .section-title {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-            margin: 32px 0 14px;
-            padding-bottom: 4px;
-            font-size: 15px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-        }
-
-        .summary {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .exp-item {
-            margin-bottom: 24px;
-        }
-
-        .exp-role {
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--text);
-            display: block;
-        }
-
-        .exp-meta {
-            color: var(--muted);
-            font-size: 13px;
-            margin: 4px 0 10px;
-            font-style: italic;
-        }
-
-        .label-text {
-            font-size: 12px;
-            font-weight: 700;
-            color: #444;
-            margin: 10px 0 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .desc-list {
-            margin: 0 0 0 12px;
-            padding: 0;
-            list-style: disc;
-        }
-
-        .desc-list li {
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 4px;
-            color: #333;
-        }
-
-        .edu-block {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .edu-block strong {
-            color: var(--text);
-        }
-
-        @media (max-width: 768px) {
-            .layout {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                min-width: unset;
-                padding: 32px 24px;
-            }
-
-            .main {
-                padding: 32px 24px;
-            }
-        }
-
-        @media print {
-            .layout {
-                display: block;
-            }
-
-            .sidebar {
-                width: 30%;
-                float: left;
-                min-height: 100vh;
-            }
-
-            .main {
-                margin-left: 30%;
-                width: 70%;
-            }
-        }
+      .desc-text {
+        font-size: 11px;
+        line-height: 1.4;
+        margin: 2px 0 2px 10px;
+      }
     </style>
-</head>
-<body>
-<div class="layout">
-    <aside class="sidebar">
-        <img src="cv_photo.jpg" alt="Veaceslav Țurcanu" class="profile-img" width="120" height="120">
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="cv-wrapper">
+        <div class="sidebar">
+          <img src="cv_photo.jpg" class="profile-img" alt="Profile Photo" />
+          <h3>Contact</h3>
+          <p>
+            📍 Hîncești, Moldova<br />📧 turcanuslavik1986@gmail.com<br />📱
+            +373 698 76312
+          </p>
+          <h3>Core Skills</h3>
+          <p>
+            • Python<br />• Asyncio / Sanic<br />• Linux<br />• Docker /
+            CI/CD<br />• pytest<br />• PostgreSQL<br />• React<br />• MUI
+          </p>
+          <h3>Languages</h3>
+          <p>• Romanian<br />• English<br />• Russian</p>
+        </div>
 
-        <h3>Contact</h3>
-        <p>
-            📍 Hîncești, Moldova<br>
-            📧 <a href="mailto:turcanuslavik1986@gmail.com">turcanuslavik1986@gmail.com</a><br>
-            📱 <a href="tel:+37369876312">+373 698 76312</a>
-        </p>
-
-        <h3>Core Skills</h3>
-        <ul class="skill-list">
-            <li>Python</li>
-            <li>Asyncio / Sanic</li>
-            <li>Linux</li>
-            <li>Docker / CI/CD</li>
-            <li>pytest</li>
-            <li>PostgreSQL</li>
-            <li>React</li>
-            <li>MUI</li>
-        </ul>
-
-        <h3>Languages</h3>
-        <ul class="lang-list">
-            <li>Romanian</li>
-            <li>English</li>
-            <li>Russian</li>
-        </ul>
-    </aside>
-
-    <main class="main">
-        <header class="header">
+        <div class="main">
+          <div class="header">
             <h1>Veaceslav Țurcanu</h1>
-            <h2>Python Backend Engineer | Linux &amp; IoT Systems</h2>
-        </header>
+            <h2>Python Backend Engineer | Linux & IoT Systems</h2>
+          </div>
 
-        <h3 class="section-title">Summary</h3>
-        <p class="summary">
-            Python Backend Engineer specialized in backend services for Linux and embedded systems.
-            Experienced in designing microservices, async applications, CI/CD pipelines, and system-level integrations.
-        </p>
+          <h3 class="section-title">Summary</h3>
+          <p style="font-size: 12px; line-height: 1.5">
+            Python Backend Engineer specialized in backend services for Linux
+            and embedded systems. Experienced in designing microservices, async
+            applications, CI/CD pipelines, and system-level integrations.
+          </p>
 
-        <h3 class="section-title">Experience</h3>
+          <h3 class="section-title">Experience</h3>
 
-        <article class="exp-item">
+          <div class="exp-item">
             <span class="exp-role">Python Web Backend Developer</span>
-            <div class="exp-meta">SmartSoftDev | May 2022 – December 2025 (3 years 8 months)</div>
-            <div class="label-text">Projects</div>
-            <ul class="desc-list">
-                <li>Embedded Device Web Portal - Web application for a specialized hardware device, utilizing React for
-                    the
-                    frontend and Sanic Web framework for the backend.
-                </li>
-                <li>System Configuration Utility - Web application responsible for managing and configuring a background
-                    system daemon, using React for the frontend and Sanic Web framework for the backend.
-                </li>
-                <li>IoT Hardware Migration - Software building, system migration from legacy ARMv5 IoT devices to modern
-                    ARMv7 hardware platforms, and integration testing on target devices.
-                </li>
-            </ul>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Developed backend services for embedded devices using Sanic and asyncio</li>
-                <li>Integrated socketIO</li>
-                <li>Developed client-side features using React+MUI, improving responsiveness and user interaction</li>
-                <li>Built CI/CD pipelines with Azure DevOps</li>
-                <li>Automated testing using pytest and Robot Framework</li>
-                <li>Worked with ARM-based IoT devices and Linux systems</li>
-            </ul>
-        </article>
+            <div class="exp-meta">
+              SmartSoftDev | May 2022 - December 2025 (3 years 8 months)
+            </div>
 
-        <article class="exp-item">
+            <div class="label-text">Projects</div>
+            <p class="desc-text">
+              • Embedded Device Web Portal - Web application for a specialized
+              hardware device, utilizing React for the frontend and Sanic Web
+              framework for the backend.
+            </p>
+            <p class="desc-text">
+              • System Configuration Utility - Web application responsible for
+              managing and configuring a background system daemon, using React
+              for the frontend and Sanic Web framework for the backend.
+            </p>
+            <p class="desc-text">
+              • IoT Hardware Migration - Software building, system migration
+              from legacy ARMv5 IoT devices to modern ARMv7 hardware platforms,
+              and integration testing on target devices.
+            </p>
+
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Developed backend services for embedded devices using Sanic and
+              asyncio
+            </p>
+            <p class="desc-text">• Integrated socketIO</p>
+            <p class="desc-text">
+              • Developed and implemented client-side features using React+MUI,
+              improving responsiveness and user interaction
+            </p>
+            <p class="desc-text">• Built CI/CD pipelines with Azure DevOps</p>
+            <p class="desc-text">
+              • Automated testing using pytest and Robot Framework
+            </p>
+            <p class="desc-text">
+              • Worked with ARM-based IoT devices and Linux systems
+            </p>
+          </div>
+
+          <div class="exp-item">
             <span class="exp-role">Full stack Developer</span>
-            <div class="exp-meta">Personal Project | October 2025 – December 2025</div>
-            <div class="label-text">Projects</div>
-            <ul class="desc-list">
-                <li>Dental Tech Register (DTR) — Work-order records app with Django REST backend, React (MUI) frontend,
-                    Docker.
-                </li>
-            </ul>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Implemented user authentication (registration, login, logout)</li>
-                <li>Created CRUD functionality for records</li>
-                <li>Designed database models using SQLite</li>
-                <li>Developed REST APIs using Django REST Framework</li>
-            </ul>
-        </article>
+            <div class="exp-meta">
+              Personal Project | October 2025 - December 2025
+            </div>
 
-        <article class="exp-item">
+            <div class="label-text">Projects</div>
+            <p class="desc-text">
+              • Dental Tech Register (DTR) - Web application for managing
+              work-order records. Technicians can register, log in, and maintain
+              their own records (description, work started/finished dates,
+              completion status). Built with a Django REST backend and a React
+              (MUI) frontend, orchestrated with Docker.
+            </p>
+
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Implemented user authentication (registration, login, logout)
+            </p>
+            <p class="desc-text">• Created CRUD functionality for records</p>
+            <p class="desc-text">• Designed database models using SQLite</p>
+            <p class="desc-text">
+              • Developed REST APIs using Django REST Framework
+            </p>
+          </div>
+
+          <div class="exp-item">
             <span class="exp-role">FE Developer</span>
             <div class="exp-meta">Personal Project | September 2025</div>
+
             <div class="label-text">Projects</div>
-            <ul class="desc-list">
-                <li>Route Calculator — React SPA: map points (OSM), distance (Leaflet), travel price, Stripe QR
-                    payment.
-                </li>
-            </ul>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Implemented SPA application</li>
-            </ul>
-        </article>
+            <p class="desc-text">
+              • Route Calculator - A React SPA that lets users select two points
+              on a map(OSMR), calculates the distance(Leaflet / react-leaflet)
+              and travel price, and generates a QR code(qrcode.react) linking to
+              a Stripe payment form.
+            </p>
 
-        <article class="exp-item">
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">• Implemented SPA application</p>
+          </div>
+
+          <div class="exp-item">
             <span class="exp-role">Python Backend Developer</span>
-            <div class="exp-meta">SmartSoftDev | June 2020 – April 2022 (1 year 11 months)</div>
+            <div class="exp-meta">
+              SmartSoftDev | June 2020 - April 2022 (1 year 11 months)
+            </div>
             <div class="label-text">Projects</div>
-            <ul class="desc-list">
-                <li>Enterprise CRM & SSO Portal - Implemented a Customer Relationship Management web application
-                    featuring advanced Single Sign-On (SSO) integration.
-                </li>
-                <li>Secure Remote Connectivity Tool - Complex infrastructure project providing secure SSH connections to
-                    remote physical devices.
-                </li>
-                <li>Core Microservices Infrastructure - Developed and optimized a set of high-performance microservices
-                    focused on data validation and contact processing, built with Python and Asyncio using the Sanic
-                    framework.
-                </li>
-            </ul>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Implemented SSO logic and integrated web services into a central CRM portal (Python, Sanic)</li>
-                <li>Developed secure SSH connectivity for remote devices (TCP/IP, SSL)</li>
-                <li>Refined and scaled Python microservices with Asyncio for high load</li>
-            </ul>
-        </article>
+            <p class="desc-text">
+              • Enterprise CRM & SSO Portal - Implemented a Customer
+              Relationship Management web application featuring advanced Single
+              Sign-On (SSO) integration.
+            </p>
+            <p class="desc-text">
+              • Secure Remote Connectivity Tool - Complex infrastructure project
+              providing secure SSH connections to remote physical devices.
+            </p>
+            <p class="desc-text">
+              • Core Microservices Infrastructure - Developed and optimized a
+              set of high-performance microservices focused on data validation
+              and contact processing, built with Python and Asyncio using the
+              Sanic framework.
+            </p>
 
-        <article class="exp-item">
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Implemented SSO logic and integrated web services into a central
+              CRM portal using Python and Sanic.
+            </p>
+            <p class="desc-text">
+              • Developed secure SSH connectivity features for remote devices,
+              managing complex TCP/IP and SSL configurations.
+            </p>
+            <p class="desc-text">
+              • Refined and scaled Python-based microservices, utilizing Asyncio
+              to ensure high performance under heavy client loads.
+            </p>
+          </div>
+
+          <div class="exp-item">
             <span class="exp-role">Python Backend Developer</span>
-            <div class="exp-meta">ITSISTEMS | November 2018 – January 2019 (3 months)</div>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Implemented Django REST API</li>
-                <li>Built web scraping tools using Scrapy and BeautifulSoup</li>
-            </ul>
-        </article>
-
-        <article class="exp-item">
-            <span class="exp-role">Junior Python Backend Developer</span>
-            <div class="exp-meta">SmartSoftDev | December 2017 – May 2018 (6 months)</div>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Contributed to FTU (First Time Use) flow for seamless setup and hardware-to-software orchestration
-                </li>
-                <li>Developed and tested OTA update mechanisms for secure firmware delivery</li>
-            </ul>
-        </article>
-
-        <article class="exp-item">
-            <span class="exp-role">Entry-Level Python Developer Intern</span>
-            <div class="exp-meta">SmartSoftDev | May 2016 – December 2016 (8 months)</div>
-            <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Assisted in debugging and testing code, improving software reliability</li>
-                <li>Collaborated with the development team on requirements and implementation</li>
-                <li>Gained experience with Falcon, Celery, Jsonschema</li>
-            </ul>
-        </article>
-
-        <article class="exp-item">
-            <span class="exp-role">Laboratory Assistant</span>
-            <div class="exp-meta">USMF (Centrul de Cultivare a Plantelor Medicinale) | December 2009 – January 2014 (4
-                years 2 months)
+            <div class="exp-meta">
+              ITSISTEMS | November 2018 - January 2019 (3 months)
             </div>
             <div class="label-text">Responsibilities</div>
-            <ul class="desc-list">
-                <li>Maintenance and expansion of the medicinal plant collection</li>
-                <li>Materials Coordinator</li>
-            </ul>
-        </article>
+            <p class="desc-text">• Implemented Django REST API</p>
+            <p class="desc-text">
+              • Built web scraping tools using Scrapy and BeautifulSoup
+            </p>
+          </div>
 
-        <h3 class="section-title">Certifications</h3>
-        <ul class="desc-list">
-            <li>PCAP – Certified Associate in Python Programming</li>
-            <li>Certified SAFe 6 Practitioner</li>
-            <li>JavaScript Algorithms and Data Structures</li>
-            <li>Relational database</li>
-        </ul>
+          <div class="exp-item">
+            <span class="exp-role">Junior Python Backend Developer</span>
+            <div class="exp-meta">
+              SmartSoftDev | December 2017 - May 2018 (6 months)
+            </div>
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Contributed to the FTU (First Time Use) flow, ensuring a
+              seamless initial setup and hardware-to-software orchestration for
+              new users.
+            </p>
+            <p class="desc-text">
+              • Developed and tested OTA (Over-the-Air) update mechanisms,
+              managing secure firmware delivery and system stability.
+            </p>
+          </div>
 
-        <h3 class="section-title">Education</h3>
-        <div class="edu-block">
-            <strong>Moldova State University</strong><br>
-            Faculty of Biology and Pedology — Ecology and Environmental Protection<br>
-            September 2004 – May 2008
+          <div class="exp-item">
+            <span class="exp-role">Entry-Level Python Developer Intern</span>
+            <div class="exp-meta">
+              SmartSoftDev | May 2016 - December 2016 (8 months)
+            </div>
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Assisted in debugging and testing code, improving overall
+              software reliability.
+            </p>
+            <p class="desc-text">
+              • Collaborated with the development team on project requirements
+              and implementation.
+            </p>
+            <p class="desc-text">
+              • Gained hands-on experience with Python libraries such as Falcon,
+              Celery, Jsonschema.
+            </p>
+          </div>
+
+          <div class="exp-item">
+            <span class="exp-role">Laboratory Assistant</span>
+            <div class="exp-meta">
+              USMF (Centrul de Cultivare a Plantelor Medicinale) | December 2009
+              - January 2014 (4 years 2 months)
+            </div>
+            <div class="label-text">Responsibilities</div>
+            <p class="desc-text">
+              • Maintenance and expansion of the medicinal plant collection.
+            </p>
+            <p class="desc-text">• Materials Coordinator.</p>
+          </div>
+
+          <h3 class="section-title">Certifications</h3>
+          <div class="exp-item">
+            <p class="desc-text">
+              • PCAP - Certified Associate in Python Programming
+            </p>
+            <p class="desc-text">• Certified SAFe 6 Practitioner</p>
+            <p class="desc-text">• JavaScript Algorithms and Data Structures</p>
+            <p class="desc-text">• Relational database</p>
+          </div>
+          <h3 class="section-title">Education</h3>
+          <p style="font-size: 12px; line-height: 1.4; margin: 0">
+            <strong>• Moldova State University</strong><br />Faculty of Biology
+            and Pedology - Ecology and Environmental Protection<br />September
+            2004 - May 2008<br />
+          </p>
         </div>
-    </main>
-</div>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
