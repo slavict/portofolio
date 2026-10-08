@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-
-"""
-pip install weasyprint
-"""
 import argparse
 import json
 import os
 import sys
 import weasyprint
-
 
 def main():
     p = argparse.ArgumentParser(
@@ -22,8 +17,8 @@ def main():
     )
     p.add_argument(
         "--html-output",
-        default="Veaceslav_Turcanu_Modern.html",
-        help="Output HTML path (default: Veaceslav_Turcanu_Modern.html)",
+        default="index.html",
+        help="Output HTML path (default: index.html)",
     )
     p.add_argument(
         "-i",
@@ -42,7 +37,7 @@ def main():
         cv_data = json.load(f)
 
     html_content = f"""<!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{cv_data['name']} - CV</title>
@@ -61,16 +56,7 @@ def main():
             color-adjust: exact;
         }}
 
-        /* Containerul principal flexibil care permite separarea pe pagini */
-        .cv-container {{
-            display: flex;
-            min-height: 297mm;
-            width: 100%;
-        }}
-
-        /* Fundalul asimetric generat prin pseudo-element pentru a se extinde pe toate paginile */
-        body::before {{
-            content: "";
+        .page-background {{
             position: fixed;
             top: 0;
             left: 0;
@@ -80,40 +66,32 @@ def main():
             z-index: -1;
         }}
 
-        /* Stiluri specifice pentru vizualizarea pe ecran (Browser) */
-        @media screen {{
-            body {{
-                background: #525659;
-                padding: 20px 0;
-            }}
-            body::before {{
-                display: none; /* Dezactivat pe ecran pentru a folosi containerul fix */
-            }}
-            .page-container {{
-                width: 210mm;
-                margin: 0 auto;
-                background: linear-gradient(to right, #F3F6F8 30%, #ffffff 30%);
-                box-shadow: 0 0 10px rgba(0,0,0,0.5);
-                box-sizing: border-box;
-            }}
+        .cv-container {{
+            display: table;
+            width: 100%;
+            table-layout: fixed;
         }}
 
         .sidebar {{ 
+            display: table-cell;
             width: 30%; 
             padding: 40px 20px; 
             box-sizing: border-box;
+            vertical-align: top;
         }}
 
         .main {{ 
+            display: table-cell;
             width: 70%; 
             padding: 40px; 
             box-sizing: border-box;
+            vertical-align: top;
+            background: #ffffff;
         }}
 
-        /* Managementul paginilor (Page Breaks) */
         .exp-item, .section-block {{
             page-break-inside: avoid;
-            break-inside: avoid; /* Previne tăierea unui bloc de experiență la jumătate */
+            break-inside: avoid;
         }}
 
         .section-title {{ 
@@ -125,10 +103,9 @@ def main():
             text-transform: uppercase; 
             font-weight: bold;
             page-break-after: avoid;
-            break-after: avoid; /* Titlul nu va rămâne singur la final de pagină */
+            break-after: avoid;
         }}
 
-        /* Elemente Profil & Elemente Vizuale */
         .profile-img {{ 
             width: 120px; 
             height: 120px; 
@@ -194,56 +171,56 @@ def main():
     </style>
 </head>
 <body>
-    <div class="page-container">
-        <div class="cv-container">
-            <div class="sidebar">
-                <img src="cv_photo.jpg" class="profile-img" alt="Profile Photo">
-                <h3>Contact</h3>
-                <p>📍 {cv_data['location']}<br>📧 {cv_data['email']}<br>📱 {cv_data['phone']}</p>
-                <h3>Core Skills</h3>
-                <p>{"<br>".join([f"• {s}" for s in cv_data['skills']])}</p>
-                <h3>Languages</h3>
-                <p>{"<br>".join([f"• {s}" for s in cv_data['languages']])}</p>
+    <div class="page-background"></div>
+
+    <div class="cv-container">
+        <div class="sidebar">
+            <img src="cv_photo.jpg" class="profile-img" alt="Profile Photo">
+            <h3>Contact</h3>
+            <p>📍 {cv_data['location']}<br>📧 {cv_data['email']}<br>📱 {cv_data['phone']}</p>
+            <h3>Core Skills</h3>
+            <p>{"<br>".join([f"• {s}" for s in cv_data['skills']])}</p>
+            <h3>Languages</h3>
+            <p>{"<br>".join([f"• {s}" for s in cv_data['languages']])}</p>
+        </div>
+
+        <div class="main">
+            <div class="header">
+                <h1>{cv_data['name']}</h1>
+                <h2>{cv_data['headline']}</h2>
             </div>
 
-            <div class="main">
-                <div class="header">
-                    <h1>{cv_data['name']}</h1>
-                    <h2>{cv_data['headline']}</h2>
+            <div class="section-block">
+                <h3 class="section-title">Summary</h3>
+                <p style="font-size: 12px; line-height: 1.5; margin: 0;">{cv_data['summary']}</p>
+            </div>
+
+            <h3 class="section-title">Experience</h3>
+            {"".join([f'''
+                <div class="exp-item">
+                    <span class="exp-role">{e['role']}</span>
+                    <div class="exp-meta">{e.get('company') or e.get('organization') or ''} | {e['period']}</div>
+
+                    {f'<div class="label-text">Projects</div>' if e.get('projects') else ''}
+                    {"".join([f'<p class="desc-text">• {r}</p>' for r in e.get('projects', [])])}
+
+                    <div class="label-text">Responsibilities</div>
+                    {"".join([f'<p class="desc-text">• {r}</p>' for r in e['desc']])}
                 </div>
+            ''' for e in cv_data['experience']])}
 
-                <div class="section-block">
-                    <h3 class="section-title">Summary</h3>
-                    <p style="font-size: 12px; line-height: 1.5; margin: 0;">{cv_data['summary']}</p>
+            <div class="section-block">
+                <h3 class="section-title">Certifications</h3>
+                <div class="exp-item">
+                    {"".join([f'<p class="desc-text">• {r}</p>' for r in cv_data['certifications']])}
                 </div>
+            </div>
 
-                <h3 class="section-title">Experience</h3>
-                {"".join([f'''
-                    <div class="exp-item">
-                        <span class="exp-role">{e['role']}</span>
-                        <div class="exp-meta">{e.get('company') or e.get('organization') or ''} | {e['period']}</div>
-
-                        {f'<div class="label-text">Projects</div>' if e.get('projects') else ''}
-                        {"".join([f'<p class="desc-text">• {r}</p>' for r in e.get('projects', [])])}
-
-                        <div class="label-text">Responsibilities</div>
-                        {"".join([f'<p class="desc-text">• {r}</p>' for r in e['desc']])}
-                    </div>
-                ''' for e in cv_data['experience']])}
-
-                <div class="section-block">
-                    <h3 class="section-title">Certifications</h3>
-                    <div class="exp-item">
-                        {"".join([f'<p class="desc-text">• {r}</p>' for r in cv_data['certifications']])}
-                    </div>
-                </div>
-
-                <div class="section-block">
-                    <h3 class="section-title">Education</h3>
-                    <p style="font-size: 12px; line-height: 1.4; margin: 0;">
-                        {"".join([f'<strong>• {ed.get("name", " ")}</strong><br>{ed.get("specialisation", " ")}<br>{ed.get("period", " ")}<br>' for ed in cv_data['education']])}
-                    </p>
-                </div>
+            <div class="section-block">
+                <h3 class="section-title">Education</h3>
+                <p style="font-size: 12px; line-height: 1.4; margin: 0;">
+                    {"".join([f'<strong>• {ed.get("name", " ")}</strong><br>{ed.get("specialisation", " ")}<br>{ed.get("period", " ")}<br>' for ed in cv_data['education']])}
+                </p>
             </div>
         </div>
     </div>
@@ -251,12 +228,10 @@ def main():
 </html>
 """
 
-    # Salvarea fișierului HTML
     with open(args.html_output, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"New HTML file was created please check {args.html_output}.")
 
-    # Generarea fișierului PDF
     weasyprint.HTML(string=html_content, base_url=".").write_pdf(args.output)
     print(f"New PDF was created please check {args.output}.")
 
