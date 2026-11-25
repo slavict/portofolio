@@ -16,9 +16,8 @@
     "MUI"
   ],
   "languages": [
-    "Romanian",
-    "English",
-    "Russian"
+    "Romanian (native)",
+    "English (B1/Intermediate)"
   ],
   "certifications": [
     "PCAP - Certified Associate in Python Programming",
@@ -111,15 +110,6 @@
         "Assisted in debugging and testing code, improving overall software reliability.",
         "Collaborated with the development team on project requirements and implementation.",
         "Gained hands-on experience with Python libraries such as Falcon, Celery, Jsonschema."
-      ]
-    },
-    {
-      "role": "Laboratory Assistant",
-      "organization": "USMF (Centrul de Cultivare a Plantelor Medicinale)",
-      "period": "December 2009 - January 2014 (4 years 2 months)",
-      "desc": [
-        "Maintenance and expansion of the medicinal plant collection.",
-        "Materials Coordinator."
       ]
     }
   ],

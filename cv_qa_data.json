@@ -1,0 +1,67 @@
+{
+  "name": "Veaceslav Țurcanu",
+  "headline": "QA Engineer (Manual & Automation) | Software Testing",
+  "location": "Hîncești, Moldova",
+  "email": "turcanuslavik1986@gmail.com",
+  "phone": "+373 698 76312",
+  "summary": "Detail-oriented IT specialist with strong analytical skills and hands-on experience in software testing, debugging, and validating end-to-end application workflows. Experienced in writing and executing test cases, reproducing edge cases, and collaborating with development teams to ensure software quality. Solid foundation in SQL, APIs, and test automation (pytest, Robot Framework, Selenium), eager to contribute to manual QA processes and grow within a collaborative product team.",
+  "skills": [
+    "Manual & Exploratory Testing",
+    "Test Cases & Bug Reporting",
+    "End-to-End & Regression Testing",
+    "Postman (API Testing)",
+    "Wireshark (Traffic Analysis)",
+    "Test Automation (pytest, Robot, Selenium)",
+    "SQL & Relational Databases",
+    "Linux & Git",
+    "Agile / SAFe"
+  ],
+  "languages": [
+    "Romanian",
+    "Russian",
+    "English (Technical / Intermediate)"
+  ],
+  "certifications": [
+    "LPI Web Development Essentials",
+    "LPI Linux Essentials",
+    "Certified SAFe 6 Practitioner",
+    "PCAP - Certified Associate in Python Programming"
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer & QA Automation Contributor",
+      "company": "SmartSoftDev",
+      "period": "May 2022 - December 2025 (3 years 8 months)",
+      "projects": [
+        "Embedded Device Web Portal & System Configuration Utility - Web applications (React + Python) where I was heavily involved in functional validation, edge-case testing, and regression checks before releases.",
+        "IoT Hardware Migration - Executed integration and system stability testing on target hardware platforms."
+      ],
+      "desc": [
+        "Designed and executed functional, regression, and end-to-end test scenarios using pytest, Robot Framework, and Selenium",
+        "Identified, isolated, and documented software defects with clear reproduction steps, expected vs. actual results",
+        "Collaborated closely with developers and product stakeholders to clarify requirements and verify bug fixes",
+        "Validated client-side UI responsiveness and backend API responses across different system states"
+      ]
+    },
+    {
+      "role": "Full Stack Web Developer (Personal Project)",
+      "company": "Dental Tech Register (DTR)",
+      "period": "October 2025 - December 2025",
+      "projects": [
+        "Work-order management web application built with Django REST and React."
+      ],
+      "desc": [
+        "Performed full end-to-end manual testing of user authentication flows (registration, login, logout) and CRUD operations",
+        "Designed relational database models and validated data integrity using SQL queries",
+        "Tested REST API endpoints and UI edge cases to ensure reliable data handling"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "name": "Moldova State University",
+      "specialisation": "Faculty of Biology and Pedology - Ecology and Environmental Protection",
+      "period": "September 2004 - May 2008"
+    }
+  ]
+}
