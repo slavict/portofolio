@@ -3,6 +3,7 @@
   "headline": "Python Backend Engineer | Linux & IoT Systems",
   "location": "Hîncești, Moldova",
   "email": "turcanuslavik1986@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/veaceslav-țurcanu-3058693a5",
   "phone": "+373 698 76312",
   "summary": "Python Backend Engineer specialized in backend services for Linux and embedded systems. Experienced in designing microservices, async applications, CI/CD pipelines, and system-level integrations.",
   "skills": [
@@ -22,6 +23,7 @@
   "certifications": [
     "PCAP - Certified Associate in Python Programming",
     "Certified SAFe 6 Practitioner",
+    "LPI Linux Essentials",
     "JavaScript Algorithms and Data Structures",
     "Relational database"
   ],
@@ -49,7 +51,7 @@
       "company": "Personal Project",
       "period": "October 2025 - December 2025",
       "projects": [
-        "Dental Tech Register (DTR) - Web application for managing work-order records. Technicians can register, log in, and maintain their own records (description, work started/finished dates, completion status). Built with a Django REST backend and a React (MUI) frontend, orchestrated with Docker."
+        "Dental Tech Register (DTR) - Web application for managing work-order records. Technicians can register, log in, and maintain their own records (description, work started/finished dates, completion status). Built with a Django REST backend and a React (MUI) frontend, orchestrated with Docker (Link to project code: https://github.com/slavict/dtr)."
       ],
       "desc": [
         "Implemented user authentication (registration, login, logout)",
@@ -63,7 +65,7 @@
       "company": "Personal Project",
       "period": "September 2025",
       "projects": [
-        "Route Calculator - A React SPA that lets users select two points on a map(OSMR), calculates the distance(Leaflet / react-leaflet) and travel price, and generates a QR code(qrcode.react) linking to a Stripe payment form."
+        "Route Calculator - A React SPA that lets users select two points on a map(OSMR), calculates the distance(Leaflet / react-leaflet) and travel price, and generates a QR code(qrcode.react) linking to a Stripe payment form (Link to project code: https://github.com/slavict/route_calc)."
       ],
       "desc": [
         "Implemented SPA application"

@@ -41,6 +41,7 @@ def main():
 <head>
     <meta charset="UTF-8">
     <title>{cv_data['name']} - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @page {{ 
             size: A4; 
@@ -177,7 +178,7 @@ def main():
         <div class="sidebar">
             <img src="cv_photo.jpg" class="profile-img" alt="Profile Photo">
             <h3>Contact</h3>
-            <p>📍 {cv_data['location']}<br>📧 {cv_data['email']}<br>📱 {cv_data['phone']}</p>
+            <p>📍 {cv_data['location']}<br>📧 {cv_data['email']}<br>{('<i class="fa fa-linkedin-square"></i> ' + cv_data.get('linkedin', '') + '<br>' ) if cv_data.get('linkedin') else '' }📱 {cv_data['phone']}</p>
             <h3>Core Skills</h3>
             <p>{"<br>".join([f"• {s}" for s in cv_data['skills']])}</p>
             <h3>Languages</h3>
